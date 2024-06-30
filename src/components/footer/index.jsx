@@ -1,8 +1,13 @@
 import React from "react";
 import { checkout, logo, footerIcon } from "../../assets/images/index";
 import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 const Footer = () => {
+  const { pathname } = useLocation();
+  if (pathname.includes("login") || pathname.includes("admin")) {
+    return <></>;
+  }
   return (
     <section id="footer">
       <div className="container">

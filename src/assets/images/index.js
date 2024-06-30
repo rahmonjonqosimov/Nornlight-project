@@ -12,6 +12,9 @@ import brend2 from "./icons/brend-2.svg";
 import brend3 from "./icons/brend-3.svg";
 import menu from "./icons/menu.svg";
 import menuX from "./icons/menu-x.svg";
+import create from "./icons/create.svg";
+import manage from "./icons/manage.svg";
+import logOut from "./icons/log-out.svg";
 
 //  png
 import swiperItem from "./imgs/hero-swiper.png";
@@ -37,4 +40,7 @@ export {
   brend3,
   menu,
   menuX,
+  create,
+  manage,
+  logOut,
 };

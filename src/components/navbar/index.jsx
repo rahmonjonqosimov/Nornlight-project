@@ -11,6 +11,9 @@ const Navbar = () => {
     setMenu(false);
   }, [pathname]);
 
+  if (pathname.includes("login") || pathname.includes("admin")) {
+    return <></>;
+  }
   return (
     <>
       {menu ? (
