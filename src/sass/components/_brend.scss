@@ -27,7 +27,7 @@
   }
   .swiper {
     overflow: hidden !important;
-    padding-top: 100px;
+    padding-top: 130px;
   }
   .swiper-button-next,
   .swiper-rtl .swiper-button-prev {
@@ -50,5 +50,30 @@
   .swiper-button-next:after {
     font-size: 16px !important;
     color: $white-clr;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #brend {
+    h1 {
+      font-family: Manrope;
+      font-size: 28px;
+      font-weight: 700;
+      line-height: 38.25px;
+    }
+  }
+  .swiper-button-next,
+  .swiper-rtl .swiper-button-prev {
+    display: none;
+  }
+  .swiper-button-prev {
+    display: none;
+  }
+  .swiper-button-prev:after,
+  .swiper-button-next:after {
+    display: none;
+  }
+  .swiper-pagination-bullet-active {
+    background: $black-clr;
   }
 }

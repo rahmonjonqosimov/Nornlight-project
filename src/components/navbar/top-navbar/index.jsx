@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const TopNav = () => {
+const TopNav = ({ menu }) => {
   return (
-    <section id="top-navbar">
+    <section className={menu ? "menu-show" : ""} id="top-navbar">
       <div className="container">
         <div className="top-navbar">
           <ul className="top__nav-item">
@@ -11,7 +11,7 @@ const TopNav = () => {
               <Link to={"/about"}>О компании</Link>
             </li>
             <li>
-              <Link to={"/about"}>Доставка и оплата</Link>
+              <Link to={"/payment"}>Доставка и оплата</Link>
             </li>
             <li>
               <Link to={"/about"}>Возврат</Link>

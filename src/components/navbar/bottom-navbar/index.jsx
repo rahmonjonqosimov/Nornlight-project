@@ -1,15 +1,36 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { logo } from "../../../assets/images";
 import { Link } from "react-router-dom";
 import Search from "./search";
 import { IoHeartOutline, IoCartOutline } from "react-icons/io5";
 import { MdOutlineDarkMode } from "react-icons/md";
+import { menu, menuX } from "../../../assets/images";
 
-const BottomNav = () => {
+const BottomNav = ({ setMenu, menu: menuShow }) => {
+  const [show, setShow] = useState(false);
+
+  const handleScroll = () => {
+    if (window.scrollY > 300) {
+      setShow(true);
+    } else if (window.scrollY <= 0) {
+      setShow(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   return (
-    <section id="bottom-navbar">
+    <section className={show ? "navbar__show" : ""} id="bottom-navbar">
       <div className="container">
         <div className="bottom-navbar">
+          <div onClick={() => setMenu((p) => !p)} className="menu">
+            <img src={menuShow ? menuX : menu} alt="" />
+          </div>
+
           <Link to={"/"} className="nav__logo">
             <img src={logo} alt="Logo" />
           </Link>

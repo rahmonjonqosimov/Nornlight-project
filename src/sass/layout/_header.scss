@@ -82,5 +82,127 @@
         }
       }
     }
+
+    //////////////  menu   //////////////////////////////////
+    .menu {
+      display: none;
+    }
+  }
+}
+
+@media screen and (max-width: 900px) {
+  #bottom-navbar {
+    .bottom-navbar {
+      display: grid;
+      grid-template-columns: 30px 210px 1fr;
+      place-items: center;
+      row-gap: 5px;
+      .nav__logo {
+        order: -2;
+      }
+      .nav__katalog {
+        display: none;
+      }
+      .nav__search {
+        height: 40px;
+        width: 100%;
+        grid-column: 1 / -1;
+        svg {
+          margin: 9px 18px;
+          margin-left: 8px;
+        }
+        input {
+          padding-right: 0;
+        }
+      }
+      .nav__links {
+        order: -1;
+        place-self: center end;
+        .nav__link {
+          span {
+            display: none;
+          }
+        }
+      }
+    }
+
+    //////////////  menu   //////////////////////////////////
+    .menu {
+      display: block !important;
+      order: -4;
+      cursor: pointer;
+    }
+  }
+  #top-navbar {
+    padding: 12px 0;
+    position: fixed;
+    top: 42px;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background: #fff;
+    z-index: 101;
+    transform: scaleY(0);
+    transition: 0.3s;
+    transform-origin: top;
+    .top-navbar {
+      flex-direction: column;
+      .top__nav-item {
+        flex-direction: column;
+        li {
+          padding-bottom: 10px;
+          border-bottom: 1px solid #eee;
+        }
+      }
+    }
+  }
+  .menu-show {
+    transform: scaleY(1) !important;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  #bottom-navbar {
+    padding: 8px 0;
+    .bottom-navbar {
+      column-gap: 16px;
+      grid-template-columns: 30px 150px 1fr;
+      .nav__logo {
+        width: 150px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        img {
+          width: 100%;
+        }
+      }
+      .nav__links {
+        gap: 16px;
+      }
+    }
+
+    //////////////  menu   //////////////////////////////////
+    .menu {
+      display: block !important;
+      order: -4;
+    }
+  }
+}
+
+.navbar__show {
+  position: sticky;
+  top: -100px;
+  left: 0;
+  right: 0;
+  background: #fff;
+  width: 100%;
+  z-index: 100;
+  box-shadow: 2px 2px 10px #0001;
+  animation: navbarAnimation 0.5s linear forwards;
+}
+
+@keyframes navbarAnimation {
+  to {
+    top: 0;
   }
 }

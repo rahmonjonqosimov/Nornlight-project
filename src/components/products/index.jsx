@@ -5,6 +5,9 @@ import img from "../../assets/images/imgs/card.png";
 import Path from "../path";
 import CategoryData from "../category-data";
 import { useGetCategotyQuery } from "../../context/api/categoryApi";
+import { GoArrowRight } from "react-icons/go";
+import { Link } from "react-router-dom";
+
 const Products = () => {
   const [category, setCategory] = useState("all");
   const { data } = useGetCategotyQuery();
@@ -43,6 +46,11 @@ const Products = () => {
           </div>
         </div>
       </section>
+      <Link to={"/products"} className="phone__link">
+        <button>
+          Все товары <GoArrowRight />
+        </button>
+      </Link>
     </>
   );
 };

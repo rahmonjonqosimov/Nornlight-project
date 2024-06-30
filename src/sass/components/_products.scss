@@ -24,6 +24,8 @@
           font-size: 24px;
           color: $black-clr;
           cursor: pointer;
+          background: #fff;
+          border-radius: 100%;
         }
       }
       .product__desc {
@@ -71,6 +73,87 @@
 
       &:hover {
         box-shadow: 2px 2px 8px #0002;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  #products {
+    .product__wrapper {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}
+@media screen and (max-width: 730px) {
+  #products {
+    .product__wrapper {
+      grid-template-columns: repeat(2, 1fr);
+      .product__card {
+        .product__image {
+        }
+        .product__desc {
+          font-family: Manrope;
+          font-size: 16px;
+          font-weight: 500;
+          line-height: 17.6px;
+          margin: 10px 10px 10px;
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 2;
+          overflow: hidden;
+        }
+        .product__row {
+          margin: 0 10px 10px;
+          display: flex;
+          align-items: flex-end;
+          justify-content: space-between;
+          .product__price {
+            span {
+              font-size: 12px;
+              font-weight: 500;
+              line-height: 13.2px;
+            }
+            h4 {
+              font-size: 16px;
+              font-weight: 700;
+              line-height: 17.6px;
+            }
+          }
+          button {
+            border-radius: 100px;
+            width: 55px;
+            height: 33px;
+            padding: 0;
+            background-color: $black-clr;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            svg {
+              color: #fff;
+              font-size: 20px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #products {
+    .product__wrapper {
+      .product__card {
+        .product__image {
+          width: 100%;
+          height: 130px;
+          position: relative;
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+          }
+        }
       }
     }
   }

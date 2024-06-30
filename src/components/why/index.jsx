@@ -1,6 +1,8 @@
 import React from "react";
 import Path from "../path";
 import { why1, why2, why3, why4 } from "../../assets/images";
+import { GoArrowRight } from "react-icons/go";
+import { Link } from "react-router-dom";
 
 const Why = () => {
   const data = [
@@ -46,6 +48,11 @@ const Why = () => {
       <div className="container">
         <div className="why__wrapper">{item}</div>
       </div>
+      <Link to={"/about"} className="phone__link">
+        <button>
+          О компании <GoArrowRight />
+        </button>
+      </Link>
     </>
   );
 };

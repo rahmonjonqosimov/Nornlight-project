@@ -20,6 +20,29 @@
   }
 }
 
+@media screen and (max-width: 700px) {
+  #path {
+    .path {
+      h2 {
+        font-size: 28px;
+        font-weight: 700;
+        line-height: 38.25px;
+      }
+    }
+  }
+}
+@media screen and (max-width: 600px) {
+  #path {
+    .path {
+      button {
+        display: none;
+      }
+    }
+  }
+}
+
+/////////////////////////////////////////////////
+
 .why__wrapper {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -52,6 +75,69 @@
       line-height: 20.8px;
       text-align: left;
       color: #a2a2a2;
+    }
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .why__wrapper {
+    grid-template-columns: repeat(2, 1fr);
+    .why__card {
+      padding: 20px;
+      h3 {
+        margin: 10px 0;
+      }
+    }
+  }
+}
+@media screen and (max-width: 550px) {
+  .why__wrapper {
+    .why__card {
+      padding: 16px;
+      .why__logo {
+        width: 40px;
+        height: 40px;
+        img {
+          width: 30px;
+        }
+      }
+      h3 {
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 20.8px;
+      }
+      p {
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 18.2px;
+      }
+    }
+  }
+}
+
+/////////////////////////////////////////////////
+
+#url {
+  margin: 20px 0 0;
+  .url {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    .url__home {
+      font-family: Manrope;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 21.86px;
+      text-align: left;
+      color: #c7c7c7;
+    }
+    .url__title {
+      font-family: Manrope;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 21.86px;
+      text-align: left;
+      color: $black-clr;
     }
   }
 }

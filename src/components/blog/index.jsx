@@ -1,7 +1,7 @@
 import React from "react";
 import Path from "../path";
 import { blog1, blog2, blog3, right } from "../../assets/images";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -9,6 +9,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 
 import { Pagination, Autoplay } from "swiper/modules";
+import { GoArrowRight } from "react-icons/go";
 
 const Blog = ({ count }) => {
   const { pathname } = useLocation();
@@ -93,6 +94,15 @@ const Blog = ({ count }) => {
         >
           {blogItem}
         </Swiper>
+      </div>
+
+      <Link to={"/blog"} className="phone__link">
+        <button>
+          Перейти в блог <GoArrowRight />
+        </button>
+      </Link>
+
+      <div className="container">
         {pathname === "/" ? (
           <div className="blog__text">
             <h1>Производство светильников</h1>

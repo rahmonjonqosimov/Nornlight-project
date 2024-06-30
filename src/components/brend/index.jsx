@@ -33,7 +33,7 @@ const Brend = () => {
             },
           }}
           loop={true}
-          // pagination={true}
+          pagination={true}
           navigation={true}
           autoplay={{
             delay: 2000,

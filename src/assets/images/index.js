@@ -10,6 +10,8 @@ import footerIcon from "./icons/footer-iconca.svg";
 import brend1 from "./icons/brend-1.svg";
 import brend2 from "./icons/brend-2.svg";
 import brend3 from "./icons/brend-3.svg";
+import menu from "./icons/menu.svg";
+import menuX from "./icons/menu-x.svg";
 
 //  png
 import swiperItem from "./imgs/hero-swiper.png";
@@ -33,4 +35,6 @@ export {
   brend1,
   brend2,
   brend3,
+  menu,
+  menuX,
 };
