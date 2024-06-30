@@ -7,8 +7,15 @@ import { useGetCategotyQuery } from "../../context/api/categoryApi";
 import { GoArrowRight } from "react-icons/go";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
+import { MdOutlineModeEdit, MdDeleteOutline } from "react-icons/md";
 
-const Products = ({ data: products, isLoading }) => {
+const Products = ({
+  data: products,
+  isLoading,
+  admin,
+  setDeleteProduct,
+  setEditProduct,
+}) => {
   const { pathname } = useLocation();
   const [category, setCategory] = useState("all");
   const { data } = useGetCategotyQuery();
@@ -25,9 +32,28 @@ const Products = ({ data: products, isLoading }) => {
           <span>{product.price * 1.2}$</span>
           <h4>{product.price}₽</h4>
         </div>
-        <button>
-          <IoCartOutline />
-        </button>
+
+        {admin ? (
+          <>
+            <div
+              style={{ marginTop: "0", gap: "8px" }}
+              className="btn__wrapper"
+            >
+              <button onClick={() => setEditProduct(product)}>
+                <MdOutlineModeEdit />
+              </button>
+              <button onClick={() => setDeleteProduct(product)}>
+                <MdDeleteOutline />
+              </button>
+            </div>
+          </>
+        ) : (
+          <>
+            <button>
+              <IoCartOutline />
+            </button>
+          </>
+        )}
       </div>
     </div>
   ));

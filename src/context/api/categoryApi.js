@@ -7,18 +7,38 @@ export const productApi = api.injectEndpoints({
         url: "/categories",
         params,
       }),
-      providesTags: ["Product"],
+      providesTags: ["Category"],
     }),
 
     createCategory: build.mutation({
       query: (body) => ({
-        url: "/products",
+        url: "/categories",
         method: "POST",
         body,
       }),
-      invalidatesTags: ["Product"],
+      invalidatesTags: ["Category"],
+    }),
+    updateCategory: build.mutation({
+      query: ({ id, body }) => ({
+        url: `/categories/${id}`,
+        method: "PUT", // or "PATCH"
+        body,
+      }),
+      invalidatesTags: ["Category"],
+    }),
+    deleteCategory: build.mutation({
+      query: (id) => ({
+        url: `/categories/${id}`,
+        method: "DELETE",
+      }),
+      invalidatesTags: ["Category"],
     }),
   }),
 });
 
-export const { useGetCategotyQuery, useCreateCategoryMutation } = productApi;
+export const {
+  useGetCategotyQuery,
+  useCreateCategoryMutation,
+  useUpdateCategoryMutation,
+  useDeleteCategoryMutation,
+} = productApi;

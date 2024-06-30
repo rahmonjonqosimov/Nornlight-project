@@ -116,6 +116,11 @@
     option {
       font-size: 16px;
     }
+    .btns {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
   }
 }
 

@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import useGetInputValue from "../../../hooks/userGetInputValue";
+import { useCreateCategoryMutation } from "../../../context/api/categoryApi";
+import { toast } from "react-toastify";
 
 const initialState = {
   title: "",
@@ -7,11 +9,23 @@ const initialState = {
 };
 
 const CreateCategory = () => {
+  const [createCategory, { isLoading, isSuccess }] =
+    useCreateCategoryMutation();
   const { handleChange, setUser, user } = useGetInputValue(initialState);
   const handleCreateCategory = (e) => {
     e.preventDefault();
-    console.log(user);
+    const category = { ...user };
+    category.url = user.url.split("\n").map((image) => image.trim());
+    createCategory(category);
   };
+
+  useEffect(() => {
+    if (isSuccess) {
+      toast.success("Category created successfully !");
+      setUser(initialState);
+    }
+  }, [isSuccess]);
+
   return (
     <section id="create-product">
       <form onSubmit={handleCreateCategory} action="">
@@ -19,6 +33,7 @@ const CreateCategory = () => {
         <label htmlFor="category">New Category</label>
         <input
           value={user.title}
+          required
           onChange={handleChange}
           type="text"
           name="title"
@@ -27,13 +42,16 @@ const CreateCategory = () => {
         />
         <label htmlFor="category-image">Category Image Url</label>
         <textarea
+          required
           value={user.url}
           onChange={handleChange}
           name="url"
           id="category-image"
           placeholder="Category image url"
         ></textarea>
-        <button>Create</button>
+        <button disabled={isLoading}>
+          {isLoading ? "Loading..." : "Create"}
+        </button>
       </form>
     </section>
   );

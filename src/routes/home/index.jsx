@@ -14,7 +14,7 @@ const Home = () => {
       <Hero />
       <CategoryItemHome />
       <Why />
-      <Products data={data} isLoading={isLoading} />
+      <Products admin={false} data={data} isLoading={isLoading} />
       <Brend />
       <Blog count={6} />
     </>
