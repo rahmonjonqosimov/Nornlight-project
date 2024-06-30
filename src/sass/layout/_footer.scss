@@ -1,0 +1,49 @@
+#footer {
+  padding: 80px 0;
+  background: $white-clr;
+  margin-top: 100px;
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    flex-wrap: wrap;
+    .footer-col {
+      h3 {
+        font-family: Manrope;
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 32.78px;
+        text-align: left;
+        color: $black-clr;
+        margin-bottom: 32px;
+        height: 33px;
+      }
+      p {
+        margin-bottom: 27px;
+        font-family: Manrope;
+        font-size: 24px;
+        font-weight: 600;
+        line-height: 32.78px;
+        text-align: left;
+        color: $black-clr;
+      }
+      img {
+        margin-bottom: 27px;
+      }
+      a {
+        display: block;
+        font-family: Manrope;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 21.86px;
+        text-align: left;
+        color: #9f9f9f;
+        margin-bottom: 27px;
+      }
+      .footer-icon {
+        margin-left: 12px;
+      }
+    }
+  }
+}

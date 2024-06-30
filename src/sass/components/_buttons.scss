@@ -1,0 +1,20 @@
+button {
+  border: 1px solid $black-clr;
+  background: #fff;
+  padding: 12px 50px;
+  border-radius: 100px;
+  font-family: Manrope;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 21.86px;
+  color: $black-clr;
+  transition: 0.3s;
+  cursor: pointer;
+  &:hover {
+    background: $black-clr;
+    color: $white-clr;
+  }
+  &:active {
+    transform: scale(0.96);
+  }
+}

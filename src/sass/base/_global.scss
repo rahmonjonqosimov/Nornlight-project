@@ -1,0 +1,47 @@
+html {
+  // 62.5% <=> 10px
+  font-size: 62.5%;
+  line-height: 1.4;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  font-size: 1.6rem;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+.container {
+  max-width: 1332px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+@font-face {
+  font-family: Manrope;
+  src: url("../fonts/Manrope-Regular.ttf");
+}
+
+body {
+  font-family: Manrope, sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+input {
+  outline: none;
+}
+
+button {
+  border: none;
+}

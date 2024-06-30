@@ -1,0 +1,30 @@
+#hero {
+  padding: 50px 0;
+  .swiper-item {
+    width: 100%;
+    position: relative;
+    height: 500px;
+    background: $white-clr;
+    display: grid;
+    grid-template-columns: 700px 1fr;
+    border-radius: 50px;
+    .swiper-title {
+      font-family: Manrope;
+      font-size: 64px;
+      font-weight: 700;
+      line-height: 87.42px;
+      color: $black-clr;
+      margin: 52px 100px;
+      span {
+        background: $black-clr;
+        color: #fff;
+        padding: 8px 40px;
+        border-radius: 50px;
+        margin-left: -19px;
+      }
+    }
+  }
+  .swiper-pagination-bullet-active {
+    background: $black-clr;
+  }
+}

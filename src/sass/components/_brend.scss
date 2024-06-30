@@ -1,0 +1,54 @@
+#brend {
+  padding: 40px 0 0;
+  h1 {
+    font-family: Manrope;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 54.64px;
+    text-align: left;
+    color: $black-clr;
+    margin-bottom: 30px;
+    margin-bottom: -70px;
+  }
+  .brend__item {
+    width: 100%;
+    border: 1px solid #d9d9d9;
+    padding: 20px;
+    height: 110px;
+    text-align: center;
+    img {
+      width: 100%;
+      object-fit: contain;
+      height: 100%;
+    }
+  }
+  .mySwiper {
+    padding-bottom: 40px;
+  }
+  .swiper {
+    overflow: hidden !important;
+    padding-top: 100px;
+  }
+  .swiper-button-next,
+  .swiper-rtl .swiper-button-prev {
+    top: 50px;
+    background: $black-clr;
+    border-radius: 20px;
+    width: 40px;
+    height: 30px;
+  }
+  .swiper-button-prev {
+    top: 50px;
+    background: $black-clr;
+    border-radius: 20px;
+    width: 40px;
+    height: 30px;
+    left: auto;
+    right: 60px !important;
+  }
+  .swiper-button-prev:after,
+  .swiper-button-next:after {
+    font-size: 16px !important;
+    color: $white-clr;
+  }
+}
