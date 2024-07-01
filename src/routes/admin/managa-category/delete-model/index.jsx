@@ -8,7 +8,6 @@ const DeleteCategoryComponent = ({
 }) => {
   const [deleteCategory, { isLoading, isSuccess }] =
     useDeleteCategoryMutation();
-  console.log(deleteCategoryById);
 
   const handleDeleteCategoryById = () => {
     deleteCategory(deleteCategoryById.id);

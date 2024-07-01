@@ -1,0 +1,106 @@
+// -------------------- Products Skeleton ------------------------
+#product-skeleton {
+  padding: 16px 0;
+  .product__skelton__wrapper {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 8px;
+    row-gap: 16px;
+    .product__skelton__card {
+      width: 100%;
+      height: 380px;
+      width: 100%;
+      border-radius: 4px;
+      border: 1px solid #f1f1f1;
+      .product__skeleton-image {
+        width: 100%;
+        height: 240px;
+      }
+      .product__skeleton-title {
+        width: 80%;
+        height: 22px;
+        margin: 25px 25px 10px;
+        border-radius: 4px;
+      }
+      .product__row {
+        margin: 10px 25px 25px;
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        .product-old-price {
+          height: 17px;
+          width: 25px;
+          border-radius: 4px;
+        }
+        .product-now-price {
+          width: 60px;
+          height: 22px;
+          margin-top: 6px;
+          border-radius: 4px;
+        }
+        .product-cart-button {
+          width: 60px;
+          height: 40px;
+          border-radius: 100px;
+        }
+      }
+    }
+  }
+  .admin__container {
+    .product__skelton__wrapper {
+      display: flex !important ;
+      align-items: center !important;
+      gap: 20px !important;
+      flex-wrap: wrap !important;
+      .product__skelton__card {
+        width: 280px !important;
+      }
+    }
+  }
+}
+
+.skeleton-anime {
+  background: linear-gradient(90deg, #f9f9f9, #dfdfdf, #f9f9f9);
+  background-size: 200%;
+  animation: skeletonAnime 1s linear 0s infinite;
+}
+@keyframes skeletonAnime {
+  to {
+    background-position: 200%;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  #product-skeleton {
+    .product__skelton__wrapper {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}
+@media screen and (max-width: 730px) {
+  #product-skeleton {
+    .product__skelton__wrapper {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
+@media screen and (max-width: 460px) {
+  #product-skeleton {
+    .product__skelton__wrapper {
+      .product__skelton__card {
+        height: 231px;
+        .product__skeleton-image {
+          height: 130px;
+          background: #f7f7f7;
+        }
+        .product__skeleton-title {
+          height: 20px;
+          margin: 10px;
+        }
+        .product__row {
+          margin: 10px;
+        }
+      }
+    }
+  }
+}

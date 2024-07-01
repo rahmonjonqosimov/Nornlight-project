@@ -17,4 +17,15 @@ button {
   &:active {
     transform: scale(0.96);
   }
+  &:disabled {
+    background: #eee;
+    cursor: no-drop;
+  }
+  &:hover:disabled {
+    background: #eee;
+    color: $black-clr;
+  }
+  &:active:disabled {
+    transform: scale(1);
+  }
 }

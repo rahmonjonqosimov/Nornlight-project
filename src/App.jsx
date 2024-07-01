@@ -16,6 +16,7 @@ import CreateProduct from "./routes/admin/create-product";
 import ManageProduct from "./routes/admin/manage-product";
 import CreateCategory from "./routes/admin/create-category";
 import ManageCategory from "./routes/admin/managa-category";
+import SingleRoute from "./routes/single-route";
 
 const App = () => {
   return (
@@ -24,6 +25,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<AboutPage />} />
+        <Route path="/product/:id" element={<SingleRoute />} />
         <Route path="/payment" element={<PaymentPage />} />
         <Route path="/login" element={<Login />} />
         <Route path="/" element={<Auth />}>
