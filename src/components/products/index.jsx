@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { IoCartOutline } from "react-icons/io5";
-import { IoHeartOutline } from "react-icons/io5";
 import { IoIosHeart, IoIosHeartEmpty } from "react-icons/io";
 
 import Path from "../path";
@@ -13,6 +12,8 @@ import { MdOutlineModeEdit, MdDeleteOutline } from "react-icons/md";
 import ProductsSkeleton from "../skeleton/products-skeleton";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleHeart } from "../../context/slices/wishlistSlice";
+import Model from "../model";
+import Detail from "../detail";
 
 const Products = ({
   data: products,
@@ -29,11 +30,36 @@ const Products = ({
   const { data } = useGetCategotyQuery();
   const [limit, setLimit] = useState(+sessionStorage.getItem("limit") || 1);
   const [loading, setLoading] = useState(false);
+  const [categorySort, setCategorySort] = useState(null);
+  const [model, setModel] = useState(null);
 
-  const productItems = products?.slice(0, limit * 8)?.map((product) => (
+  useEffect(() => {
+    if (category !== "all") {
+      setCategorySort(
+        products?.filter((el) =>
+          el.category.toLowerCase().includes(category.toLowerCase())
+        )
+      );
+    } else {
+      setCategorySort(products);
+    }
+  }, [category]);
+
+  let isCategory = null;
+  if (pathname.includes("wishlist")) {
+    isCategory = products;
+  } else {
+    isCategory = categorySort ? categorySort : products;
+  }
+
+  const productItems = isCategory?.slice(0, limit * 8)?.map((product) => (
     <div key={product.id} className="product__card">
       <div className="product__image">
-        <img src={product.images[0]} alt={product.title} />
+        <img
+          onClick={() => setModel(product)}
+          src={product.images[0]}
+          alt={product.title}
+        />
         {pathname.includes("admin") ? (
           <></>
         ) : wishlist.some((el) => el.id === product.id) ? (
@@ -95,8 +121,6 @@ const Products = ({
     sessionStorage.setItem("limit", limit);
   }, [loading]);
 
-  console.log(category);
-
   return (
     <>
       {!pathname.includes("admin") ? (
@@ -142,11 +166,11 @@ const Products = ({
 
         {!pathname.includes("wishlist") ? (
           <button
-            disabled={limit * 8 >= products?.length}
+            disabled={limit * 8 >= isCategory?.length}
             onClick={handleLimitIncrement}
             className="see__more"
           >
-            {limit * 8 >= products?.length
+            {limit * 8 >= isCategory?.length
               ? "Maxsulotlar tugadi"
               : `${loading || isLoading ? "Loading..." : "See More"}`}
           </button>
@@ -161,6 +185,13 @@ const Products = ({
             Все товары <GoArrowRight />
           </button>
         </Link>
+      ) : (
+        <></>
+      )}
+      {model ? (
+        <Model close={() => setModel(null)}>
+          <Detail model={model} setModel={setModel} />
+        </Model>
       ) : (
         <></>
       )}
