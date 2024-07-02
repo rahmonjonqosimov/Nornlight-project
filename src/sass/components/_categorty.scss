@@ -155,7 +155,60 @@
   .caregory__wrapper {
     display: none;
   }
+  .category__wrapper-page {
+    display: grid !important;
+    margin-bottom: 30px;
+    .category__line {
+      padding: 10px;
+      .caregory__card {
+        flex-direction: column;
+        position: relative;
+        padding-bottom: 20px;
+        border-radius: 10px;
+        height: 100%;
+        .category__card__text {
+          height: auto;
+          a {
+            position: absolute;
+            bottom: 0;
+            left: 10px;
+          }
+        }
+        img {
+          width: 100%;
+          height: 160px;
+          display: block;
+          margin: 0 auto;
+        }
+      }
+    }
+  }
 }
+
+@media screen and (max-width: 420px) {
+  .category__wrapper-page {
+    .category__line {
+      height: 190px;
+      .caregory__card {
+        gap: 10px;
+        .category__card__text {
+          h3 {
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 17.6px;
+          }
+        }
+        img {
+          width: 100%;
+          height: 100px;
+          display: block;
+          margin: 0 auto;
+        }
+      }
+    }
+  }
+}
+
 .category-swiper {
   display: none;
 }

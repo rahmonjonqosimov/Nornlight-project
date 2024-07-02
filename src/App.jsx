@@ -17,6 +17,10 @@ import ManageProduct from "./routes/admin/manage-product";
 import CreateCategory from "./routes/admin/create-category";
 import ManageCategory from "./routes/admin/managa-category";
 import SingleRoute from "./routes/single-route";
+import Wishes from "./routes/wishes";
+import NotFound from "./routes/not-found";
+import Catalog from "./routes/catalog";
+import AllProducts from "./routes/products";
 
 const App = () => {
   return (
@@ -28,6 +32,10 @@ const App = () => {
         <Route path="/product/:id" element={<SingleRoute />} />
         <Route path="/payment" element={<PaymentPage />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/wishlist" element={<Wishes />} />
+        <Route path="*" element={<NotFound />} />
+        <Route path="/category" element={<Catalog />} />
+        <Route path="/products" element={<AllProducts />} />
         <Route path="/" element={<Auth />}>
           <Route path="/admin" element={<AdminPage />}>
             <Route path="create-product" element={<CreateProduct />} />

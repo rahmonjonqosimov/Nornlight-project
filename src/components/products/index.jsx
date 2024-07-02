@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { IoCartOutline } from "react-icons/io5";
 import { IoHeartOutline } from "react-icons/io5";
+import { IoIosHeart, IoIosHeartEmpty } from "react-icons/io";
+
 import Path from "../path";
 import CategoryData from "../category-data";
 import { useGetCategotyQuery } from "../../context/api/categoryApi";
@@ -9,6 +11,8 @@ import { Link } from "react-router-dom";
 import { useLocation, useNavigate } from "react-router-dom";
 import { MdOutlineModeEdit, MdDeleteOutline } from "react-icons/md";
 import ProductsSkeleton from "../skeleton/products-skeleton";
+import { useDispatch, useSelector } from "react-redux";
+import { toggleHeart } from "../../context/slices/wishlistSlice";
 
 const Products = ({
   data: products,
@@ -17,6 +21,8 @@ const Products = ({
   setDeleteProduct,
   setEditProduct,
 }) => {
+  const dispatch = useDispatch();
+  const wishlist = useSelector((s) => s.wishlist.value);
   const { pathname } = useLocation();
   const navigate = useNavigate();
   const [category, setCategory] = useState("all");
@@ -28,7 +34,16 @@ const Products = ({
     <div key={product.id} className="product__card">
       <div className="product__image">
         <img src={product.images[0]} alt={product.title} />
-        {pathname.includes("admin") ? <></> : <IoHeartOutline />}
+        {pathname.includes("admin") ? (
+          <></>
+        ) : wishlist.some((el) => el.id === product.id) ? (
+          <IoIosHeart
+            style={{ color: "#454545" }}
+            onClick={() => dispatch(toggleHeart(product))}
+          />
+        ) : (
+          <IoIosHeartEmpty onClick={() => dispatch(toggleHeart(product))} />
+        )}
       </div>
       <div
         onClick={() => navigate(`/product/${product.id}`)}
@@ -80,6 +95,8 @@ const Products = ({
     sessionStorage.setItem("limit", limit);
   }, [loading]);
 
+  console.log(category);
+
   return (
     <>
       {!pathname.includes("admin") ? (
@@ -88,12 +105,17 @@ const Products = ({
             title={"Популярные товары"}
             url={"products"}
             btnTitle={"Все товары"}
+            btn={pathname.includes("products") ? false : true}
           />
-          <CategoryData
-            category={category}
-            setCategory={setCategory}
-            data={data}
-          />
+          {!pathname.includes("wishlist") ? (
+            <CategoryData
+              category={category}
+              setCategory={setCategory}
+              data={data}
+            />
+          ) : (
+            <></>
+          )}
         </>
       ) : (
         <></>
@@ -118,15 +140,19 @@ const Products = ({
           <></>
         )}
 
-        <button
-          disabled={limit * 8 >= products?.length}
-          onClick={handleLimitIncrement}
-          className="see__more"
-        >
-          {limit * 8 >= products?.length
-            ? "Maxsulotlar tugadi"
-            : `${loading || isLoading ? "Loading..." : "See More"}`}
-        </button>
+        {!pathname.includes("wishlist") ? (
+          <button
+            disabled={limit * 8 >= products?.length}
+            onClick={handleLimitIncrement}
+            className="see__more"
+          >
+            {limit * 8 >= products?.length
+              ? "Maxsulotlar tugadi"
+              : `${loading || isLoading ? "Loading..." : "See More"}`}
+          </button>
+        ) : (
+          <></>
+        )}
       </section>
 
       {!pathname.includes("admin") ? (

@@ -44,7 +44,12 @@ const Why = () => {
 
   return (
     <>
-      <Path title={"Почему NORNLIGHT?"} btnTitle={"О компании"} url={"about"} />
+      <Path
+        title={"Почему NORNLIGHT?"}
+        btnTitle={"О компании"}
+        url={"about"}
+        btn={true}
+      />
       <div className="container">
         <div className="why__wrapper">{item}</div>
       </div>

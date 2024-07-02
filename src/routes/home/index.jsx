@@ -12,7 +12,7 @@ const Home = () => {
   return (
     <>
       <Hero />
-      <CategoryItemHome />
+      <CategoryItemHome count={6} />
       <Why />
       <Products admin={false} data={data} isLoading={isLoading} />
       <Brend />

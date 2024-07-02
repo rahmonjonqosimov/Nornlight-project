@@ -68,6 +68,23 @@
         align-items: center;
         gap: 3px;
         cursor: pointer;
+        position: relative;
+        sup {
+          position: absolute;
+          top: -5px;
+          right: 4px;
+          width: 16px;
+          height: 16px;
+          border-radius: 50%;
+          background: #c63c3c;
+          color: #fff;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 12px;
+          font-weight: 600;
+          line-height: 16.39px;
+        }
         svg {
           font-size: 24px;
           color: $black-clr;
@@ -121,6 +138,9 @@
         .nav__link {
           span {
             display: none;
+          }
+          sup {
+            right: -7px;
           }
         }
       }

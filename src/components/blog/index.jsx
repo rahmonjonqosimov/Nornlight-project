@@ -63,7 +63,12 @@ const Blog = ({ count }) => {
   ));
   return (
     <>
-      <Path title={"Блог"} btnTitle={"Перейти в блог"} url={"blog"} />
+      <Path
+        title={"Блог"}
+        btnTitle={"Перейти в блог"}
+        url={"blog"}
+        btn={true}
+      />
 
       <div className="container">
         <Swiper
@@ -103,7 +108,7 @@ const Blog = ({ count }) => {
       </Link>
 
       <div className="container">
-        {pathname === "/" ? (
+        {pathname === "/" || pathname == "/category" ? (
           <div className="blog__text">
             <h1>Производство светильников</h1>
             <p>

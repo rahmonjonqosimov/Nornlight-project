@@ -1,0 +1,33 @@
+#not-found {
+  padding: 40px 0;
+  .not__found {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    img {
+      max-width: 800px;
+      width: 100%;
+      display: block;
+      margin: 0 auto;
+    }
+    h3 {
+      font-size: 24px;
+      font-weight: 600;
+      line-height: 33.6px;
+      color: $black-clr;
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  #not-found {
+    .not__found {
+      h3 {
+        font-size: 18px;
+        line-height: 16px;
+      }
+    }
+  }
+}

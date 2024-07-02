@@ -5,10 +5,11 @@ import Search from "./search";
 import { IoHeartOutline, IoCartOutline } from "react-icons/io5";
 import { MdOutlineDarkMode } from "react-icons/md";
 import { menu, menuX } from "../../../assets/images";
+import { useSelector } from "react-redux";
 
 const BottomNav = ({ setMenu, menu: menuShow }) => {
   const [show, setShow] = useState(false);
-
+  const wishlist = useSelector((s) => s.wishlist.value);
   const handleScroll = () => {
     if (window.scrollY > 300) {
       setShow(true);
@@ -34,7 +35,7 @@ const BottomNav = ({ setMenu, menu: menuShow }) => {
           <Link to={"/"} className="nav__logo">
             <img src={logo} alt="Logo" />
           </Link>
-          <Link to={"/catalog"}>
+          <Link to={"/category"}>
             <button className="nav__katalog">Каталог</button>
           </Link>
           <Search />
@@ -42,6 +43,7 @@ const BottomNav = ({ setMenu, menu: menuShow }) => {
             <Link to={"/wishlist"} className="nav__link">
               <IoHeartOutline />
               <span>Избранное</span>
+              <sup>{wishlist?.length}</sup>
             </Link>
             <div className="nav__link">
               <MdOutlineDarkMode />
@@ -50,6 +52,7 @@ const BottomNav = ({ setMenu, menu: menuShow }) => {
             <Link to={"/cart"} className="nav__link">
               <IoCartOutline />
               <span>Корзина</span>
+              <sup>{"0"}</sup>
             </Link>
           </div>
         </div>

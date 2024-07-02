@@ -21,6 +21,7 @@ import swiperItem from "./imgs/hero-swiper.png";
 import blog1 from "./imgs/blog-1.png";
 import blog3 from "./imgs/blog-2.png";
 import blog2 from "./imgs/blog-3.png";
+import notFound from "./imgs/404.png";
 
 export {
   logo,
@@ -43,4 +44,5 @@ export {
   create,
   manage,
   logOut,
+  notFound,
 };
