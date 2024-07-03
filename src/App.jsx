@@ -21,21 +21,15 @@ import Wishes from "./routes/wishes";
 import NotFound from "./routes/not-found";
 import Catalog from "./routes/catalog";
 import AllProducts from "./routes/products";
+import CartPage from "./routes/cart";
+import BlogPage from "./routes/blog";
+import ContactPage from "./routes/contact";
 
 const App = () => {
   return (
     <>
       <Navbar />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="/product/:id" element={<SingleRoute />} />
-        <Route path="/payment" element={<PaymentPage />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/wishlist" element={<Wishes />} />
-        <Route path="*" element={<NotFound />} />
-        <Route path="/category" element={<Catalog />} />
-        <Route path="/products" element={<AllProducts />} />
         <Route path="/" element={<Auth />}>
           <Route path="/admin" element={<AdminPage />}>
             <Route path="create-product" element={<CreateProduct />} />
@@ -44,6 +38,19 @@ const App = () => {
             <Route path="manage-category" element={<ManageCategory />} />
           </Route>
         </Route>
+
+        <Route path="/product/:id" element={<SingleRoute />} />
+        <Route path="/products" element={<AllProducts />} />
+        <Route path="/contact" element={<ContactPage />} />
+        <Route path="/payment" element={<PaymentPage />} />
+        <Route path="/category" element={<Catalog />} />
+        <Route path="/wishlist" element={<Wishes />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/blog" element={<BlogPage />} />
+        <Route path="/cart" element={<CartPage />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="*" element={<NotFound />} />
+        <Route index element={<Home />} />
       </Routes>
       <Footer />
       <ToastContainer />

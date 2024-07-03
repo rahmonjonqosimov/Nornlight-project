@@ -15,6 +15,7 @@ import menuX from "./icons/menu-x.svg";
 import create from "./icons/create.svg";
 import manage from "./icons/manage.svg";
 import logOut from "./icons/log-out.svg";
+import deleteIcon from "./icons/delete.svg";
 
 //  png
 import swiperItem from "./imgs/hero-swiper.png";
@@ -22,6 +23,8 @@ import blog1 from "./imgs/blog-1.png";
 import blog3 from "./imgs/blog-2.png";
 import blog2 from "./imgs/blog-3.png";
 import notFound from "./imgs/404.png";
+import emptyCart from "./imgs/empty-cart.jpg";
+import emptyHeart from "./imgs/empty-heart.jpg";
 
 export {
   logo,
@@ -45,4 +48,7 @@ export {
   manage,
   logOut,
   notFound,
+  deleteIcon,
+  emptyCart,
+  emptyHeart,
 };

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { IoCartOutline } from "react-icons/io5";
-import { IoIosHeart, IoIosHeartEmpty } from "react-icons/io";
+import { IoIosHeart, IoIosHeartEmpty, IoIosCheckmark } from "react-icons/io";
 
 import Path from "../path";
 import CategoryData from "../category-data";
@@ -12,8 +12,9 @@ import { MdOutlineModeEdit, MdDeleteOutline } from "react-icons/md";
 import ProductsSkeleton from "../skeleton/products-skeleton";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleHeart } from "../../context/slices/wishlistSlice";
-import Model from "../model";
+import { addToCart } from "../../context/slices/cartSlice";
 import Detail from "../detail";
+import Model from "../model";
 
 const Products = ({
   data: products,
@@ -24,6 +25,7 @@ const Products = ({
 }) => {
   const dispatch = useDispatch();
   const wishlist = useSelector((s) => s.wishlist.value);
+  const cart = useSelector((s) => s.cart.value);
   const { pathname } = useLocation();
   const navigate = useNavigate();
   const [category, setCategory] = useState("all");
@@ -32,7 +34,6 @@ const Products = ({
   const [loading, setLoading] = useState(false);
   const [categorySort, setCategorySort] = useState(null);
   const [model, setModel] = useState(null);
-
   useEffect(() => {
     if (category !== "all") {
       setCategorySort(
@@ -99,8 +100,12 @@ const Products = ({
           </>
         ) : (
           <>
-            <button>
-              <IoCartOutline />
+            <button onClick={() => dispatch(addToCart(product))}>
+              {cart.some((el) => el.id === product.id) ? (
+                <IoIosCheckmark style={{ fontSize: "30px" }} />
+              ) : (
+                <IoCartOutline style={{ fontSize: "20px" }} />
+              )}
             </button>
           </>
         )}
@@ -165,15 +170,15 @@ const Products = ({
         )}
 
         {!pathname.includes("wishlist") ? (
-          <button
-            disabled={limit * 8 >= isCategory?.length}
-            onClick={handleLimitIncrement}
-            className="see__more"
-          >
-            {limit * 8 >= isCategory?.length
-              ? "Maxsulotlar tugadi"
-              : `${loading || isLoading ? "Loading..." : "See More"}`}
-          </button>
+          <>
+            {limit * 8 >= isCategory?.length ? (
+              <></>
+            ) : (
+              <button onClick={handleLimitIncrement} className="see__more">
+                {loading || isLoading ? "Loading..." : "See More"}
+              </button>
+            )}
+          </>
         ) : (
           <></>
         )}

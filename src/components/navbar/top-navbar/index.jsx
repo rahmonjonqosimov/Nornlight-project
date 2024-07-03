@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import Model from "../../model";
+import Call from "../../call";
 
 const TopNav = ({ menu }) => {
+  const [call, setCall] = useState(false);
   return (
     <section className={menu ? "menu-show" : ""} id="top-navbar">
       <div className="container">
@@ -28,12 +31,19 @@ const TopNav = ({ menu }) => {
           </ul>
           <ul className="top__nav-item">
             <li>8 (800) 890-46-56</li>
-            <li>
+            <li onClick={() => setCall(true)}>
               <Link to={"/"}>Заказать звонок</Link>
             </li>
           </ul>
         </div>
       </div>
+      {call ? (
+        <Model close={() => setCall(false)}>
+          <Call setCall={setCall} />
+        </Model>
+      ) : (
+        <></>
+      )}
     </section>
   );
 };

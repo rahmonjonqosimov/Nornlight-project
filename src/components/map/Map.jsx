@@ -2,7 +2,14 @@ import React from "react";
 
 const Map = () => {
   return (
-    <div className="container">
+    <div
+      className=""
+      style={{
+        maxWidth: "1800px",
+        margin: "0 auto",
+        padding: "0 16px",
+      }}
+    >
       <div style={{ width: "100%" }}>
         <iframe
           width="100%"

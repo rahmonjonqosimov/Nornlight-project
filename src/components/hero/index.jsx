@@ -12,6 +12,7 @@ const Hero = () => {
     <section id="hero">
       <div className="container">
         <Swiper
+          spaceBetween={30}
           loop={true}
           pagination={true}
           autoplay={{

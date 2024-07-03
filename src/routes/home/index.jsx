@@ -16,7 +16,7 @@ const Home = () => {
       <Why />
       <Products admin={false} data={data} isLoading={isLoading} />
       <Brend />
-      <Blog count={6} />
+      <Blog count={6} btn={true} />
     </>
   );
 };

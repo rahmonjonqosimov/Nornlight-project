@@ -7,7 +7,7 @@ const Url = ({ title, path }) => {
       <div className="container">
         <div className="url">
           <Link to={"/"} className="url__home">
-            Home
+            Главная
           </Link>
           <span>{">"}</span>
           <Link className="url__title" to={path}>

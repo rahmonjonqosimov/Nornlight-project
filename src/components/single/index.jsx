@@ -3,11 +3,14 @@ import { FiPlus, FiMinus } from "react-icons/fi";
 import { IoMdHeartEmpty } from "react-icons/io";
 import { IoMdHeart } from "react-icons/io";
 
-const Single = ({ data, isLoading }) => {
+const Single = ({ data, isLoading, id }) => {
   const [imageUrl, setImageUrl] = useState(data?.images[0]);
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+  useEffect(() => {
+    setImageUrl(null);
+  }, [id]);
   return (
     <section id="single-page">
       <div className="container">

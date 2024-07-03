@@ -36,25 +36,74 @@
     .nav__katalog {
       height: 50px;
       padding: 0px 27px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      svg {
+        font-size: 20px;
+      }
     }
     .nav__search {
       flex: 1;
       display: flex;
       height: 50px;
       border: 1px solid #454545;
+      transition: 0.2s;
       border-radius: 100px;
-      overflow: hidden;
+      position: relative;
       input {
         flex: 1;
         padding: 14px 24px;
         border: none;
         height: 100%;
+        transition: 0.2s;
+        border-radius: 100px;
       }
       svg {
         margin-right: 16px;
         margin-top: 14px;
         color: $black-clr;
         font-size: 20px;
+      }
+      .search__result {
+        width: calc(100% + 2px);
+        max-height: 400px;
+        background: #fff;
+        border: 1px solid #454545;
+        position: absolute;
+        top: 100%;
+        border-radius: 0 0 20px 20px;
+        left: -1px;
+        z-index: 10;
+        overflow: hidden;
+        .search__item {
+          display: flex;
+          align-items: center;
+          gap: 20px;
+          padding: 12px 20px;
+          cursor: pointer;
+          svg {
+            margin: 0;
+          }
+          p {
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+          }
+
+          &:hover {
+            background: $white-clr;
+          }
+        }
+      }
+    }
+    .nav__search.show {
+      border-radius: 20px 20px 0 0;
+      transition: 0.2s;
+      input {
+        transition: 0.2s;
+        border-radius: 20px 20px 0 0;
       }
     }
     .nav__links {
@@ -76,7 +125,7 @@
           width: 16px;
           height: 16px;
           border-radius: 50%;
-          background: #c63c3c;
+          background: #454545;
           color: #fff;
           display: flex;
           align-items: center;
@@ -218,7 +267,7 @@
   width: 100%;
   z-index: 100;
   box-shadow: 2px 2px 10px #0001;
-  animation: navbarAnimation 0.3s linear forwards;
+  animation: navbarAnimation 0.2s linear forwards;
 }
 
 @keyframes navbarAnimation {

@@ -134,14 +134,14 @@
   }
 }
 
-///////////////////  Manage Category
+///////////////////  Manage Category ///////////////////////
 
 #manage-product {
   table {
     width: 100%;
     border-collapse: collapse;
     tr {
-      background: #f2efef;
+      background: #f9f9f9;
     }
     th,
     td,
@@ -160,8 +160,7 @@
       color: #fff;
     }
     tr:nth-of-type(2n) {
-      background: #a1a1a1;
-      color: #fff;
+      background: #f4f4f4;
     }
 
     button {

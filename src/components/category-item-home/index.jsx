@@ -15,16 +15,14 @@ const CategoryItemHome = ({ count }) => {
   const { pathname } = useLocation();
   const { data } = useGetCategotyQuery();
   const item = data?.slice(0, count)?.map((item) => (
-    <div key={item.id} className="category__line">
-      <div className="caregory__card">
-        <div className="category__card__text">
-          <h3>{item.title}</h3>
-          <Link to={"/"}>
-            От 540₽ <GoArrowRight />{" "}
-          </Link>
-        </div>
-        <img src={item.url[0]} alt="" />
+    <div key={item.id} className="caregory__card">
+      <div className="category__card__text">
+        <h3>{item.title}</h3>
+        <Link to={"/"}>
+          От 540₽ <GoArrowRight />{" "}
+        </Link>
       </div>
+      <img src={item.url[0]} alt="" />
     </div>
   ));
 

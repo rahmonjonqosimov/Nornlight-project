@@ -6,6 +6,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 
 import { Navigation, Pagination } from "swiper/modules";
+import { IoCloseOutline } from "react-icons/io5";
 
 const Detail = ({ model, setModel }) => {
   const navigate = useNavigate();
@@ -28,6 +29,9 @@ const Detail = ({ model, setModel }) => {
         {swiperItem}
       </Swiper>
       <button onClick={() => navigate(`/product/${model.id}`)}>see more</button>
+      <div onClick={() => setModel(null)} className="close">
+        <IoCloseOutline />
+      </div>
     </section>
   );
 };

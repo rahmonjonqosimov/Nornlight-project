@@ -3,6 +3,7 @@
   padding: 0;
   height: 65vh;
   padding-bottom: 30px;
+  position: relative;
   .mySwiper {
     padding-bottom: 30px;
   }
@@ -35,12 +36,28 @@
     justify-content: center;
     color: #fff;
   }
+  .close {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #454545;
+    border-radius: 50%;
+    position: absolute;
+    top: -14px;
+    right: -14px;
+    cursor: pointer;
+    z-index: 10;
+    svg {
+      font-size: 22px;
+    }
+  }
 }
 
 @media screen and (max-width: 600px) {
   #detail {
     height: 43vh;
-
     .detail-image {
       width: 80vw;
       height: 30vh;

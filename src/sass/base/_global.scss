@@ -94,10 +94,10 @@ button {
   transform: translate(-50%, -50%) scale(0.5);
   z-index: 201;
   background: #fff;
-  border-radius: 8px;
+  border-radius: 50px;
   padding: 30px;
   opacity: 0;
-  animation: modelAnimation 0.3s ease-in-out 0s forwards;
+  animation: modelAnimation 0.15s ease-in-out 0s forwards;
 }
 
 .btn__wrapper {
@@ -129,10 +129,8 @@ button {
   }
   h4 {
     span {
-      background: crimson;
-      color: #fff;
-      padding: 5px 10px;
-      border-radius: 10px;
+      color: crimson;
+      font-weight: 900;
     }
   }
 }

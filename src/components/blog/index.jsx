@@ -11,7 +11,7 @@ import "swiper/css/pagination";
 import { Pagination, Autoplay } from "swiper/modules";
 import { GoArrowRight } from "react-icons/go";
 
-const Blog = ({ count }) => {
+const Blog = ({ count, btn }) => {
   const { pathname } = useLocation();
 
   const data = [
@@ -67,45 +67,52 @@ const Blog = ({ count }) => {
         title={"Блог"}
         btnTitle={"Перейти в блог"}
         url={"blog"}
-        btn={true}
+        btn={btn ? true : false}
       />
 
       <div className="container">
-        <Swiper
-          slidesPerView={1}
-          spaceBetween={10}
-          breakpoints={{
-            600: {
-              slidesPerView: 1,
-              spaceBetween: 20,
-            },
-            768: {
-              slidesPerView: 2,
-              spaceBetween: 40,
-            },
-            1000: {
-              slidesPerView: 3,
-              spaceBetween: 50,
-            },
-          }}
-          loop={true}
-          pagination={true}
-          autoplay={{
-            delay: 2000,
-            disableOnInteraction: false,
-          }}
-          modules={[Pagination, Autoplay]}
-          className="mySwiper blog__wrapper"
-        >
-          {blogItem}
-        </Swiper>
+        {pathname.includes("blog") ? (
+          <div className="blog__wrapper">{blogItem}</div>
+        ) : (
+          <Swiper
+            slidesPerView={1}
+            spaceBetween={10}
+            breakpoints={{
+              600: {
+                slidesPerView: 1,
+                spaceBetween: 20,
+              },
+              768: {
+                slidesPerView: 2,
+                spaceBetween: 40,
+              },
+              1000: {
+                slidesPerView: 3,
+                spaceBetween: 50,
+              },
+            }}
+            loop={true}
+            pagination={true}
+            autoplay={{
+              delay: 2000,
+              disableOnInteraction: false,
+            }}
+            modules={[Pagination, Autoplay]}
+            className="mySwiper blog__wrapper"
+          >
+            {blogItem}
+          </Swiper>
+        )}
       </div>
-
-      <Link to={"/blog"} className="phone__link">
-        <button>
-          Перейти в блог <GoArrowRight />
-        </button>
-      </Link>
+      {pathname?.includes("blog") ? (
+        <></>
+      ) : (
+        <Link to={"/blog"} className="phone__link">
+          <button>
+            Перейти в блог <GoArrowRight />
+          </button>
+        </Link>
+      )}
 
       <div className="container">
         {pathname === "/" || pathname == "/category" ? (
