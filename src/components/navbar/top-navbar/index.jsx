@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import Model from "../../model";
+import { Link, NavLink } from "react-router-dom";
 import Call from "../../call";
+import Model from "../../model";
 
 const TopNav = ({ menu }) => {
   const [call, setCall] = useState(false);
@@ -11,22 +11,22 @@ const TopNav = ({ menu }) => {
         <div className="top-navbar">
           <ul className="top__nav-item">
             <li>
-              <Link to={"/about"}>О компании</Link>
+              <NavLink to={"/about"}>О компании</NavLink>
             </li>
             <li>
-              <Link to={"/payment"}>Доставка и оплата</Link>
+              <NavLink to={"/payment"}>Доставка и оплата</NavLink>
             </li>
             <li>
-              <Link to={"/about"}>Возврат</Link>
+              <NavLink to={"/return"}>Возврат</NavLink>
             </li>
             <li>
-              <Link to={"/about"}>Гарантии</Link>
+              <NavLink to={"/garant"}>Гарантии</NavLink>
             </li>
             <li>
-              <Link to={"/contact"}>Контакты</Link>
+              <NavLink to={"/contact"}>Контакты</NavLink>
             </li>
             <li>
-              <Link to={"/blog"}>Блог</Link>
+              <NavLink to={"/blog"}>Блог</NavLink>
             </li>
           </ul>
           <ul className="top__nav-item">

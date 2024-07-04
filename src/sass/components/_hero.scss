@@ -23,9 +23,16 @@
         margin-left: -19px;
       }
     }
+    img {
+      place-self: center;
+    }
   }
   .swiper-pagination-bullet-active {
     background: $black-clr;
+  }
+  .swiper-pagination {
+    text-align: end;
+    padding-right: 55px;
   }
 }
 
@@ -75,6 +82,10 @@
         width: 100%;
         width: 300px;
       }
+    }
+    .swiper-pagination {
+      text-align: center;
+      padding-right: 0px;
     }
   }
 }

@@ -2,15 +2,39 @@ import React, { useEffect, useState } from "react";
 import { FiPlus, FiMinus } from "react-icons/fi";
 import { IoMdHeartEmpty } from "react-icons/io";
 import { IoMdHeart } from "react-icons/io";
+import { singleIcon } from "../../assets/images";
+import { useSelector, useDispatch } from "react-redux";
+import { toggleHeart } from "../../context/slices/wishlistSlice";
+import {
+  addToCart,
+  decrementCart,
+  incrementCart,
+  removeFromCart,
+} from "../../context/slices/cartSlice";
 
 const Single = ({ data, isLoading, id }) => {
   const [imageUrl, setImageUrl] = useState(data?.images[0]);
+
+  const wishlist = useSelector((s) => s.wishlist.value);
+  const cart = useSelector((s) => s.cart.value);
+  const dispatch = useDispatch();
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
   useEffect(() => {
     setImageUrl(null);
   }, [id]);
+
+  const productQuantity = cart.find((el) => el.id === data.id)?.quantity;
+
+  const handleDecrement = (data) => {
+    if (productQuantity <= 1) {
+      dispatch(removeFromCart(data.id));
+    } else {
+      dispatch(decrementCart(data));
+    }
+  };
+
   return (
     <section id="single-page">
       <div className="container">
@@ -35,7 +59,9 @@ const Single = ({ data, isLoading, id }) => {
             <p className="single-scott">Scott</p>
             <div className="single__row">
               <p className="single-scott">Артикул : 7655-188</p>
-              <div className="single-icons">sa</div>
+              <div className="single-icons">
+                <img src={singleIcon} alt="" />
+              </div>
             </div>
             <p className="single-scott">В наличии</p>
             <div className="single-price">
@@ -44,18 +70,43 @@ const Single = ({ data, isLoading, id }) => {
             </div>
             <div className="single-desc">{data?.desc}</div>
             <div className="single-cart">
-              <div className="single-cart-count">
-                <button>
-                  <FiMinus />
+              {cart.some((el) => el.id === data.id) ? (
+                <div className="single-cart-count">
+                  <button onClick={() => handleDecrement(data)}>
+                    <FiMinus />
+                  </button>
+                  <span>{productQuantity}</span>
+                  <button
+                    disabled={productQuantity >= 10}
+                    onClick={() => dispatch(incrementCart(data))}
+                  >
+                    <FiPlus />
+                  </button>
+                </div>
+              ) : (
+                <></>
+              )}
+
+              {cart.some((el) => el.id === data.id) ? (
+                <></>
+              ) : (
+                <button
+                  onClick={() => dispatch(addToCart(data))}
+                  className="add-to-cart"
+                >
+                  В корзину
                 </button>
-                <span>1</span>
-                <button>
-                  <FiPlus />
-                </button>
-              </div>
-              <button className="add-to-cart">В корзину</button>
-              <button className="heart-toggle">
-                <IoMdHeartEmpty />
+              )}
+
+              <button
+                onClick={() => dispatch(toggleHeart(data))}
+                className="heart-toggle"
+              >
+                {wishlist?.some((el) => el.id === data?.id) ? (
+                  <IoMdHeart />
+                ) : (
+                  <IoMdHeartEmpty />
+                )}
               </button>
             </div>
           </div>

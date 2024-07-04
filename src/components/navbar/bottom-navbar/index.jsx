@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { logo } from "../../../assets/images";
-import { Link } from "react-router-dom";
-import Search from "./search";
-import { IoHeartOutline, IoCartOutline } from "react-icons/io5";
-import { MdOutlineDarkMode } from "react-icons/md";
-import { menu, menuX } from "../../../assets/images";
-import { useSelector } from "react-redux";
 import { HiOutlineMenuAlt1 } from "react-icons/hi";
+import { IoCartOutline, IoHeartOutline } from "react-icons/io5";
+import { MdOutlineDarkMode } from "react-icons/md";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import { logo, menu, menuX } from "../../../assets/images";
+import Search from "./search";
 
 const BottomNav = ({ setMenu, menu: menuShow }) => {
   const [show, setShow] = useState(false);
@@ -48,7 +47,7 @@ const BottomNav = ({ setMenu, menu: menuShow }) => {
             <Link to={"/wishlist"} className="nav__link">
               <IoHeartOutline />
               <span>Избранное</span>
-              <sup>{wishlist?.length}</sup>
+              <sup className="heart">{wishlist?.length}</sup>
             </Link>
             <div className="nav__link">
               <MdOutlineDarkMode />

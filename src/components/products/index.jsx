@@ -38,7 +38,12 @@ const Products = ({
     if (category !== "all") {
       setCategorySort(
         products?.filter((el) =>
-          el.category.toLowerCase().includes(category.toLowerCase())
+          el.category.toLowerCase().includes(
+            category
+              .split(" ")
+              .map((item) => item.toLowerCase())
+              .join("-")
+          )
         )
       );
     } else {

@@ -22,7 +22,9 @@ const CategoryItemHome = ({ count }) => {
           От 540₽ <GoArrowRight />{" "}
         </Link>
       </div>
-      <img src={item.url[0]} alt="" />
+      <div className="img">
+        <img src={item.url[0]} alt="" />
+      </div>
     </div>
   ));
 
