@@ -1,15 +1,14 @@
 import React from "react";
-import Path from "../path";
-import { useGetCategotyQuery } from "../../context/api/categoryApi";
 import { GoArrowRight } from "react-icons/go";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { useLocation } from "react-router-dom";
+import { useGetCategotyQuery } from "../../context/api/categoryApi";
+import Path from "../path";
 
 import "swiper/css";
 import "swiper/css/pagination";
 
-import { Pagination, Autoplay } from "swiper/modules";
+import { Autoplay, Pagination } from "swiper/modules";
 
 const CategoryItemHome = ({ count }) => {
   const { pathname } = useLocation();
@@ -85,6 +84,7 @@ const CategoryItemHome = ({ count }) => {
               },
             }}
             pagination={true}
+            loop={true}
             autoplay={{
               delay: 2000,
               disableOnInteraction: false,

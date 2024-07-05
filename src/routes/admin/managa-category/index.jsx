@@ -1,26 +1,35 @@
 import React, { useState } from "react";
-import { useGetCategotyQuery } from "../../../context/api/categoryApi";
 import Model from "../../../components/model";
-import EditCategoryComponent from "./edit-model";
+import { useGetCategotyQuery } from "../../../context/api/categoryApi";
 import DeleteCategoryComponent from "./delete-model";
+import EditCategoryComponent from "./edit-model";
+import PaginationComponent from "./pagination";
 const ManageCategory = () => {
-  const { data } = useGetCategotyQuery();
-  const [limit, setLimit] = useState(1);
+  const { data, isLoading } = useGetCategotyQuery();
   const [editCategory, setEditCategory] = useState(null);
   const [deleteCategoryById, setDeleteCategoryById] = useState(null);
+
+  const [page, setPage] = useState(+sessionStorage.getItem("page-count") || 1);
+
+  const paginationCount = Math.ceil(data?.length / 5);
 
   const handleEditCategory = (category) => {
     setEditCategory(category);
   };
 
-  const users = data?.slice(0, limit * 5)?.map((category) => (
+  const users = data?.slice((page - 1) * 5, page * 5)?.map((category) => (
     <tr key={category.id}>
       <td>{category.title}</td>
       <td>
-        <button onClick={() => handleEditCategory(category)}>Edit</button>
+        <button onClick={() => handleEditCategory(category)}>
+          Редактировать
+        </button>
       </td>
       <td>
-        <button onClick={() => setDeleteCategoryById(category)}> Delete</button>
+        <button onClick={() => setDeleteCategoryById(category)}>
+          {" "}
+          Удалить
+        </button>
       </td>
     </tr>
   ));
@@ -48,20 +57,26 @@ const ManageCategory = () => {
       )}
 
       <section id="manage-product">
-        <h3>Category Manage</h3>
+        <h3>Управление категориями</h3>
         <table>
           <thead>
             <tr>
-              <th>Category Name</th>
-              <th>Edit</th>
-              <th>Delete</th>
+              <th>Список категорий</th>
+              <th>Редактировать</th>
+              <th>Удалить</th>
             </tr>
           </thead>
           <tbody>{users}</tbody>
         </table>
-        <button onClick={() => setLimit((p) => p + 1)} className="see-more">
-          see-more
-        </button>
+        {isLoading ? (
+          <></>
+        ) : (
+          <PaginationComponent
+            page={page}
+            paginationCount={paginationCount}
+            setPage={setPage}
+          />
+        )}
       </section>
     </>
   );

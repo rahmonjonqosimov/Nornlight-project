@@ -1,16 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { FiPlus, FiMinus } from "react-icons/fi";
-import { IoMdHeartEmpty } from "react-icons/io";
-import { IoMdHeart } from "react-icons/io";
+import { FiMinus, FiPlus } from "react-icons/fi";
+import { IoMdHeart, IoMdHeartEmpty } from "react-icons/io";
+import { useDispatch, useSelector } from "react-redux";
 import { singleIcon } from "../../assets/images";
-import { useSelector, useDispatch } from "react-redux";
-import { toggleHeart } from "../../context/slices/wishlistSlice";
 import {
   addToCart,
   decrementCart,
   incrementCart,
   removeFromCart,
 } from "../../context/slices/cartSlice";
+import { toggleHeart } from "../../context/slices/wishlistSlice";
 
 const Single = ({ data, isLoading, id }) => {
   const [imageUrl, setImageUrl] = useState(data?.images[0]);
@@ -45,12 +44,16 @@ const Single = ({ data, isLoading, id }) => {
             </div>
             <div className="single-images-wrapper">
               {data?.images?.slice(0, 4)?.map((image, inx) => (
-                <img
-                  onClick={(e) => setImageUrl(e.target.src)}
+                <div
                   key={inx}
-                  src={image}
-                  alt={data?.title}
-                />
+                  className={`im ${imageUrl == image ? "active" : ""}`}
+                >
+                  <img
+                    onClick={(e) => setImageUrl(e.target.src)}
+                    src={image}
+                    alt={data?.title}
+                  />
+                </div>
               ))}
             </div>
           </div>

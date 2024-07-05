@@ -1,20 +1,19 @@
 import React, { useEffect, useState } from "react";
+import { IoIosCheckmark, IoIosHeart, IoIosHeartEmpty } from "react-icons/io";
 import { IoCartOutline } from "react-icons/io5";
-import { IoIosHeart, IoIosHeartEmpty, IoIosCheckmark } from "react-icons/io";
 
-import Path from "../path";
-import CategoryData from "../category-data";
-import { useGetCategotyQuery } from "../../context/api/categoryApi";
 import { GoArrowRight } from "react-icons/go";
-import { Link } from "react-router-dom";
-import { useLocation, useNavigate } from "react-router-dom";
-import { MdOutlineModeEdit, MdDeleteOutline } from "react-icons/md";
-import ProductsSkeleton from "../skeleton/products-skeleton";
+import { MdDeleteOutline, MdOutlineModeEdit } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
-import { toggleHeart } from "../../context/slices/wishlistSlice";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useGetCategotyQuery } from "../../context/api/categoryApi";
 import { addToCart } from "../../context/slices/cartSlice";
+import { toggleHeart } from "../../context/slices/wishlistSlice";
+import CategoryData from "../category-data";
 import Detail from "../detail";
 import Model from "../model";
+import Path from "../path";
+import ProductsSkeleton from "../skeleton/products-skeleton";
 
 const Products = ({
   data: products,
@@ -180,7 +179,7 @@ const Products = ({
               <></>
             ) : (
               <button onClick={handleLimitIncrement} className="see__more">
-                {loading || isLoading ? "Loading..." : "See More"}
+                {loading || isLoading ? "Загрузка..." : "Узнать больше"}
               </button>
             )}
           </>

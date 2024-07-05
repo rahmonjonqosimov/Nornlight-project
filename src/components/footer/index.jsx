@@ -1,7 +1,6 @@
 import React from "react";
-import { checkout, logo, footerIcon } from "../../assets/images/index";
-import { Link } from "react-router-dom";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import { checkout, footerIcon, logo } from "../../assets/images/index";
 
 const Footer = () => {
   const { pathname } = useLocation();
@@ -26,12 +25,12 @@ const Footer = () => {
           </div>
           <div className="footer-col">
             <h3>Покупателям</h3>
-            <Link to={"/"}>О компании</Link>
-            <Link to={"/"}>Доставка и оплата</Link>
-            <Link to={"/"}>Возврат</Link>
-            <Link to={"/"}>Гарантии</Link>
-            <Link to={"/"}>Контакты</Link>
-            <Link to={"/"}>Блог</Link>
+            <Link to={"/about"}>О компании</Link>
+            <Link to={"/payment"}>Доставка и оплата</Link>
+            <Link to={"/return"}>Возврат</Link>
+            <Link to={"/garant"}>Гарантии</Link>
+            <Link to={"/contact"}>Контакты</Link>
+            <Link to={"/blog"}>Блог</Link>
           </div>
           <div className="footer-col">
             <h3>Товары</h3>

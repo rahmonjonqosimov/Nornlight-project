@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { useGetProductByIdQuery } from "../../context/api/productApi";
-import Url from "../../components/url";
 import Single from "../../components/single";
 import SingleRouteSkeleton from "../../components/skeleton/single-route-skeleton";
+import Url from "../../components/url";
+import { useGetProductByIdQuery } from "../../context/api/productApi";
 
 const SingleRoute = () => {
   const { id } = useParams();
@@ -23,6 +23,10 @@ const SingleRoute = () => {
       ) : (
         <Single data={data} isLoading={isLoading} id={id} />
       )}
+
+      <div className="product__wrapper">
+        <div className="product__card"></div>
+      </div>
     </>
   );
 };

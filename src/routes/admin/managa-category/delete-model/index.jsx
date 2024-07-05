@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
-import { useDeleteCategoryMutation } from "../../../../context/api/categoryApi";
 import { toast } from "react-toastify";
+import { useDeleteCategoryMutation } from "../../../../context/api/categoryApi";
 
 const DeleteCategoryComponent = ({
   deleteCategoryById,
@@ -22,17 +22,20 @@ const DeleteCategoryComponent = ({
 
   return (
     <section id="delete__model">
-      <h3>Delete category</h3>
+      <h3>Удалить категорию</h3>
       <h4>
-        <span>{deleteCategoryById.title}</span> kategoriyasini o'chirishni
-        istaysizmi ?
+        Вы хотите удалить категорию <span>{deleteCategoryById.title}</span>?
       </h4>
       <div className="btn__wrapper">
         <button onClick={() => setDeleteCategoryById(null)} type="button">
-          Close
+          Закрывать
         </button>
-        <button disabled={isLoading} onClick={handleDeleteCategoryById}>
-          {isLoading ? "Loading..." : "Delete"}
+        <button
+          style={{ marginLeft: "30px" }}
+          disabled={isLoading}
+          onClick={handleDeleteCategoryById}
+        >
+          {isLoading ? "Загрузка..." : "Удалить"}
         </button>
       </div>
     </section>

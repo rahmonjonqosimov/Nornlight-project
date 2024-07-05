@@ -12,14 +12,26 @@
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         gap: 10px;
-        display: none;
-        img {
+        .im {
           width: 100%;
-          height: 80px;
+          height: 140px;
           border: 1px solid #ddd;
-          object-fit: contain;
           padding: 3px;
-          cursor: pointer;
+          transition: 0.3s;
+          border-radius: 4px;
+          img {
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+            object-fit: contain;
+          }
+          &:hover {
+            transform: scale(1.03);
+          }
+        }
+        .im.active {
+          transform: scale(1.03);
+          border: 1px solid #454545;
         }
       }
     }
@@ -181,7 +193,9 @@
       grid-template-columns: 1fr;
       gap: 20px;
       .single-images-wrapper {
-        display: grid !important;
+        .im {
+          height: 100px !important;
+        }
       }
       .single-image {
         height: 400px;
@@ -238,6 +252,11 @@
     .single__wrapper {
       .single-image {
         height: 330px;
+      }
+      .single-images-wrapper {
+        .im {
+          height: 70px !important;
+        }
       }
     }
   }

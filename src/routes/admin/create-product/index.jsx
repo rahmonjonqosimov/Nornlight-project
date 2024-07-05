@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
-import useGetInputValue from "../../../hooks/userGetInputValue";
 import { useCreateProductMutation } from "../../../context/api/productApi";
+import useGetInputValue from "../../../hooks/userGetInputValue";
 const initialState = {
   title: "",
   desc: "",
   price: "",
 };
 
-import { useGetCategotyQuery } from "../../../context/api/categoryApi";
 import { toast } from "react-toastify";
+import { useGetCategotyQuery } from "../../../context/api/categoryApi";
 
 const CreateProduct = () => {
   const [createProduct, { data, isLoading, isSuccess }] =
@@ -48,7 +48,7 @@ const CreateProduct = () => {
   return (
     <section id="create-product">
       <form onSubmit={handleCreateProduct} action="">
-        <h3>Create product</h3>
+        <h3>Создать продукт</h3>
         <label htmlFor="title">Title</label>
         <input
           required
@@ -99,7 +99,7 @@ const CreateProduct = () => {
           placeholder="Desc"
         ></textarea>
         <button disabled={isLoading}>
-          {isLoading ? "Loading..." : "Create"}
+          {isLoading ? "Загрузка..." : "Создавать"}
         </button>
       </form>
     </section>

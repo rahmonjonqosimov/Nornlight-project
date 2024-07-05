@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
-import { useDeleteProductMutation } from "../../../../context/api/productApi";
 import { toast } from "react-toastify";
+import { useDeleteProductMutation } from "../../../../context/api/productApi";
 
 const DeleteProduct = ({ deleteProduct, setDeleteProduct }) => {
   const [deleteProductById, { isLoading, isSuccess }] =
@@ -19,14 +19,14 @@ const DeleteProduct = ({ deleteProduct, setDeleteProduct }) => {
 
   return (
     <section style={{ width: "400px" }} id="delete__model">
-      <h3>Delete Product</h3>
+      <h3>Удаление продукта</h3>
       <h4>
-        <span>{deleteProduct.title} </span> ni o'chirishni istaysizmi ?
+        Xочешь удалить <span>{deleteProduct.title} </span>?
       </h4>
       <div className="btn__wrapper">
-        <button onClick={() => setDeleteProduct(null)}>Close</button>
+        <button onClick={() => setDeleteProduct(null)}>Закрывать</button>
         <button onClick={handleDeleteProduct}>
-          {isLoading ? "Loading..." : "Delete"}
+          {isLoading ? "Загрузка..." : "Удалить"}
         </button>
       </div>
     </section>

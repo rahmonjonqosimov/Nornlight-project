@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Map from "../../components/map/Map";
 import Url from "../../components/url";
 
 const ContactPage = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <>
       <Url title={"Контакты"} path={"/contact"} />

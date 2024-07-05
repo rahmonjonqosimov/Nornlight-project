@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
-import useGetInputValue from "../../../hooks/userGetInputValue";
-import { useCreateCategoryMutation } from "../../../context/api/categoryApi";
 import { toast } from "react-toastify";
+import { useCreateCategoryMutation } from "../../../context/api/categoryApi";
+import useGetInputValue from "../../../hooks/userGetInputValue";
 
 const initialState = {
   title: "",
@@ -29,8 +29,8 @@ const CreateCategory = () => {
   return (
     <section id="create-product">
       <form onSubmit={handleCreateCategory} action="">
-        <h3>Create category</h3>
-        <label htmlFor="category">New Category</label>
+        <h3>Создать категорию</h3>
+        <label htmlFor="category">Новая категория</label>
         <input
           value={user.title}
           required
@@ -40,17 +40,18 @@ const CreateCategory = () => {
           id="category"
           placeholder="Category"
         />
-        <label htmlFor="category-image">Category Image Url</label>
+        <label htmlFor="category-image">Адрес изображения в категории</label>
         <textarea
           required
           value={user.url}
           onChange={handleChange}
           name="url"
           id="category-image"
-          placeholder="Category image url"
+          placeholder="Адрес изображения в категории
+"
         ></textarea>
         <button disabled={isLoading}>
-          {isLoading ? "Loading..." : "Create"}
+          {isLoading ? "Загрузка..." : "Создавать"}
         </button>
       </form>
     </section>

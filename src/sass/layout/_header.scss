@@ -31,6 +31,7 @@
 
 #bottom-navbar {
   padding: 12px 0;
+
   .bottom-navbar {
     display: flex;
     align-items: center;
@@ -42,6 +43,8 @@
       display: flex;
       align-items: center;
       gap: 4px;
+      background: #454545;
+      color: #fff;
       svg {
         font-size: 20px;
       }
@@ -263,6 +266,13 @@
     .menu {
       display: block !important;
       order: -4;
+    }
+  }
+  #call {
+    width: 300px !important;
+    h1 {
+      font-size: 28px !important;
+      line-height: 36px !important;
     }
   }
 }

@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Url from "../../components/url";
 
 const Return = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <>
       <Url title={"Возврат"} path={"/return"} />

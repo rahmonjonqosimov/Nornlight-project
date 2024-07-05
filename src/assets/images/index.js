@@ -31,6 +31,7 @@ import swiperItem2 from "./imgs/hero-swiper-2.png";
 import swiperItem3 from "./imgs/hero-swiper-3.png";
 import swiperItem from "./imgs/hero-swiper.png";
 import login from "./imgs/login.jpg";
+import najotTalim from "./imgs/najot-talim.png";
 
 export {
   blog1,
@@ -52,6 +53,7 @@ export {
   manage,
   menu,
   menuX,
+  najotTalim,
   notFound,
   right,
   singleIcon,

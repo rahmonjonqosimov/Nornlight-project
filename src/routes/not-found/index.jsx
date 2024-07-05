@@ -1,9 +1,12 @@
-import React from "react";
-import { notFound } from "../../assets/images";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { notFound } from "../../assets/images";
 
 const NotFound = () => {
   const navigate = useNavigate();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <section id="not-found">
       <div className="container">

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import TopNav from "./top-navbar";
-import BottomNav from "./bottom-navbar";
 import { useLocation } from "react-router-dom";
+import BottomNav from "./bottom-navbar";
+import TopNav from "./top-navbar";
 const Navbar = () => {
   const { pathname } = useLocation();
   const [menu, setMenu] = useState(false);
@@ -15,11 +15,6 @@ const Navbar = () => {
   }
   return (
     <>
-      {menu ? (
-        <div onClick={() => setMenu(false)} className="owerlay"></div>
-      ) : (
-        <></>
-      )}
       <TopNav menu={menu} />
       <BottomNav setMenu={setMenu} menu={menu} />
     </>

@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
+import { toast } from "react-toastify";
 import { useGetCategotyQuery } from "../../../../context/api/categoryApi";
 import { useUpdateProductMutation } from "../../../../context/api/productApi";
-import { toast } from "react-toastify";
 
 const EditProduct = ({ editProduct, setEditProduct }) => {
   const [updateProduct, { isLoading, isSuccess }] = useUpdateProductMutation();
@@ -33,7 +33,7 @@ const EditProduct = ({ editProduct, setEditProduct }) => {
   return (
     <section style={{ width: "600px" }} id="create-product">
       <form onSubmit={handleCreateProduct} action="">
-        <h3>Update product</h3>
+        <h3>Обновить продукт</h3>
         <label htmlFor="title">Title</label>
         <input
           required
@@ -95,10 +95,10 @@ const EditProduct = ({ editProduct, setEditProduct }) => {
         ></textarea>
         <div className="btn__wrapper">
           <button type="button" onClick={() => setEditProduct(null)}>
-            Close
+            Закрывать
           </button>
           <button type="submit" disabled={isLoading}>
-            {isLoading ? "Loading..." : "Save"}
+            {isLoading ? "Загрузка..." : "Сохранять"}
           </button>
         </div>
       </form>

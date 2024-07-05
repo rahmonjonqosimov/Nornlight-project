@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
-import Products from "../../components/products";
 import { useNavigate } from "react-router-dom";
 import { emptyHeart } from "../../assets/images";
+import Products from "../../components/products";
 
 const Wishes = () => {
   const wishlist = useSelector((s) => s.wishlist.value);

@@ -88,6 +88,7 @@
     grid-template-columns: repeat(2, 1fr);
     .why__card {
       padding: 20px;
+
       h3 {
         margin: 10px 0;
       }
@@ -98,6 +99,7 @@
   .why__wrapper {
     .why__card {
       padding: 16px;
+      height: 200px;
       .why__logo {
         width: 40px;
         height: 40px;
@@ -115,6 +117,13 @@
         font-weight: 400;
         line-height: 18.2px;
       }
+    }
+  }
+}
+@media screen and (max-width: 430px) {
+  .why__wrapper {
+    .why__card {
+      height: 230px;
     }
   }
 }

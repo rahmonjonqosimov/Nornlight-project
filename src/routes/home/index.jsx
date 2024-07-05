@@ -1,10 +1,10 @@
 import React from "react";
-import Hero from "../../components/hero";
-import Products from "../../components/products";
-import Why from "../../components/why";
 import Blog from "../../components/blog";
 import Brend from "../../components/brend";
 import CategoryItemHome from "../../components/category-item-home";
+import Hero from "../../components/hero";
+import Products from "../../components/products";
+import Why from "../../components/why";
 import { useGetProductsQuery } from "../../context/api/productApi";
 
 const Home = () => {

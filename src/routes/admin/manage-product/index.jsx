@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { useGetProductsQuery } from "../../../context/api/productApi";
-import Products from "../../../components/products";
 import Model from "../../../components/model";
+import Products from "../../../components/products";
+import { useGetProductsQuery } from "../../../context/api/productApi";
 import DeleteProduct from "./delete-product";
 import EditProduct from "./edit-product";
 
@@ -11,7 +11,7 @@ const ManageProduct = () => {
   const [editProduct, setEditProduct] = useState(null);
   return (
     <section id="manage-product">
-      <h3>Manage product</h3>
+      <h3>Управление продуктом</h3>
       <Products
         setDeleteProduct={setDeleteProduct}
         setEditProduct={setEditProduct}

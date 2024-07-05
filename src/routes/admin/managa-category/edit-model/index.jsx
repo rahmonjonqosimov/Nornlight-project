@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
-import { useUpdateCategoryMutation } from "../../../../context/api/categoryApi";
 import { toast } from "react-toastify";
+import { useUpdateCategoryMutation } from "../../../../context/api/categoryApi";
 
 const EditCategoryComponent = ({ editCategory, setEditCategory }) => {
   const [updateCategory, { isLoading, isSuccess }] =
@@ -25,8 +25,8 @@ const EditCategoryComponent = ({ editCategory, setEditCategory }) => {
   return (
     <section style={{ width: "600px" }} id="create-product">
       <form onSubmit={handleEditCategory} action="">
-        <h3>Edit category</h3>
-        <label htmlFor="category">Category</label>
+        <h3>Изменить категорию</h3>
+        <label htmlFor="category">Категория</label>
         <input
           value={editCategory.title}
           required
@@ -38,7 +38,7 @@ const EditCategoryComponent = ({ editCategory, setEditCategory }) => {
           id="category"
           placeholder="Category"
         />
-        <label htmlFor="category-image">Category Image Url</label>
+        <label htmlFor="category-image">Адрес изображения в категории</label>
         <textarea
           required
           value={editCategory.url}
@@ -51,9 +51,9 @@ const EditCategoryComponent = ({ editCategory, setEditCategory }) => {
         ></textarea>
         <div className="btns">
           <button onClick={() => setEditCategory(null)} type="button">
-            Close
+            Закрывать
           </button>
-          <button>{isLoading ? "Loading..." : "Save"}</button>
+          <button>{isLoading ? "Загрузка..." : "Сохранять"}</button>
         </div>
       </form>
     </section>

@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Url from "../../components/url";
 
 const Garant = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <>
       <Url title={"Гарантии"} path={"/garant"} />
