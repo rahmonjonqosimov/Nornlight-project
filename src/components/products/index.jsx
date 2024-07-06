@@ -157,7 +157,7 @@ const Products = ({
 
       {!isCategory?.length ? (
         <div className="container category__not">
-          <h2>Информация не найдена !</h2>
+          <h2>Товаров не найдено !</h2>
         </div>
       ) : (
         <></>

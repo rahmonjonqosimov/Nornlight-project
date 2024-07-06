@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { HiOutlineMenuAlt1 } from "react-icons/hi";
 import { IoCartOutline, IoHeartOutline } from "react-icons/io5";
-import { MdOutlineDarkMode } from "react-icons/md";
+import { LuBarChart } from "react-icons/lu";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+
 import { logo, menu, menuX } from "../../../assets/images";
 import Search from "./search";
 
@@ -59,10 +60,10 @@ const BottomNav = ({ setMenu, menu: menuShow }) => {
                 <span>Избранное</span>
                 <sup className="heart">{wishlist?.length}</sup>
               </Link>
-              <div className="nav__link">
-                <MdOutlineDarkMode />
-                <span>Dark</span>
-              </div>
+              <Link to={"/cравнение"} className="nav__link">
+                <LuBarChart />
+                <span> Сравнение</span>
+              </Link>
               <Link to={"/cart"} className="nav__link">
                 <IoCartOutline />
                 <span>Корзина</span>

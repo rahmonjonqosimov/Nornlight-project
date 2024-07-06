@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { FiSearch } from "react-icons/fi";
-import { useGetProductsQuery } from "../../../../context/api/productApi";
 import { useLocation, useNavigate } from "react-router-dom";
+import { useGetProductsQuery } from "../../../../context/api/productApi";
 
 const Search = () => {
   const [searchResult, setSearchResult] = useState(null);
@@ -43,7 +43,13 @@ const Search = () => {
       />
       <FiSearch />
       {value.trim() ? (
-        <div className="search__result">{searchItem}</div>
+        <div className="search__result">
+          {searchItem?.length ? (
+            searchItem
+          ) : (
+            <div className="search__item">Товаров не найдена</div>
+          )}
+        </div>
       ) : (
         <></>
       )}
