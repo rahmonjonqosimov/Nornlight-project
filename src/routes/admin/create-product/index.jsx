@@ -38,7 +38,7 @@ const CreateProduct = () => {
 
   useEffect(() => {
     if (isSuccess) {
-      toast.success("Create Product Success !");
+      toast.success("Успех продукта был создан !");
       setUser(initialState);
       setImages("");
       setCategory("");

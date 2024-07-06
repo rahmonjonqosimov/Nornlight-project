@@ -164,3 +164,29 @@
     transform: scale(0);
   }
 }
+
+// ------------------- Catgory Loading --------------
+.categpry__skeleton-wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  .category__skeleton-card {
+    width: 100%;
+    height: 240px;
+    border-radius: 20px;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .categpry__skeleton-wrapper {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (max-width: 700px) {
+  .categpry__skeleton-wrapper {
+    gap: 8px;
+    .category__skeleton-card {
+      height: 225px;
+    }
+  }
+}

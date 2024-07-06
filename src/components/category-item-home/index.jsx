@@ -9,10 +9,11 @@ import "swiper/css";
 import "swiper/css/pagination";
 
 import { Autoplay, Pagination } from "swiper/modules";
+import CategoryLoading from "../skeleton/category-loading";
 
 const CategoryItemHome = ({ count }) => {
   const { pathname } = useLocation();
-  const { data } = useGetCategotyQuery();
+  const { data, isLoading } = useGetCategotyQuery();
   const item = data?.slice(0, count)?.map((item) => (
     <div key={item.id} className="caregory__card">
       <div className="category__card__text">
@@ -49,6 +50,8 @@ const CategoryItemHome = ({ count }) => {
         title={"Каталог"}
         url={"category"}
       />
+
+      {isLoading ? <CategoryLoading /> : <></>}
 
       <div className="container">
         <div

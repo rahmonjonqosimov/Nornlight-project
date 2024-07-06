@@ -11,6 +11,9 @@ import {
 } from "../../context/slices/cartSlice";
 import { toggleHeart } from "../../context/slices/wishlistSlice";
 
+import Zoom from "react-medium-image-zoom";
+import "react-medium-image-zoom/dist/styles.css";
+
 const Single = ({ data, isLoading, id }) => {
   const [imageUrl, setImageUrl] = useState(data?.images[0]);
 
@@ -39,9 +42,11 @@ const Single = ({ data, isLoading, id }) => {
       <div className="container">
         <div className="single__wrapper">
           <div className="product__images">
-            <div className="single-image">
-              <img src={imageUrl || data?.images[0]} alt={data?.title} />
-            </div>
+            <Zoom>
+              <div className="single-image">
+                <img src={imageUrl || data?.images[0]} alt={data?.title} />
+              </div>
+            </Zoom>
             <div className="single-images-wrapper">
               {data?.images?.slice(0, 4)?.map((image, inx) => (
                 <div

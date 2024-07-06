@@ -103,14 +103,14 @@
           display: flex;
           justify-content: space-between;
           align-items: center;
-          width: 123px;
+          width: 175px;
           border: 1px solid #e5e5e5;
           height: 100%;
           border-radius: 10px;
           overflow: hidden;
           button {
             padding: 0;
-            width: 40px;
+            width: 57px;
             border-radius: 0;
             height: 100%;
             border: none;
@@ -218,13 +218,14 @@
         .single-cart {
           height: 44px;
           .single-cart-count {
-            width: 100px;
+            width: 140px;
             button {
-              width: 30px;
+              width: 46px;
             }
           }
           .add-to-cart {
-            padding: 0 20px;
+            padding: 0;
+            width: 140px;
             height: 100%;
           }
         }

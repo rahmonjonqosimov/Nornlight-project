@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { IoIosCheckmark, IoIosHeart, IoIosHeartEmpty } from "react-icons/io";
-import { IoCartOutline } from "react-icons/io5";
+import { IoIosHeart, IoIosHeartEmpty } from "react-icons/io";
+
+import { BsCart, BsCartCheck } from "react-icons/bs";
 
 import { GoArrowRight } from "react-icons/go";
 import { MdDeleteOutline, MdOutlineModeEdit } from "react-icons/md";
@@ -106,9 +107,9 @@ const Products = ({
           <>
             <button onClick={() => dispatch(addToCart(product))}>
               {cart.some((el) => el.id === product.id) ? (
-                <IoIosCheckmark style={{ fontSize: "30px" }} />
+                <BsCartCheck style={{ fontSize: "20px" }} />
               ) : (
-                <IoCartOutline style={{ fontSize: "20px" }} />
+                <BsCart style={{ fontSize: "20px" }} />
               )}
             </button>
           </>
@@ -150,6 +151,14 @@ const Products = ({
             <></>
           )}
         </>
+      ) : (
+        <></>
+      )}
+
+      {!isCategory?.length ? (
+        <div className="container category__not">
+          <h2>Информация не найдена !</h2>
+        </div>
       ) : (
         <></>
       )}
