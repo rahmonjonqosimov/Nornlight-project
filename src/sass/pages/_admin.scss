@@ -4,9 +4,10 @@
 
 /////////////////////////////////////////////////
 
-#admin {
+.admin {
   display: grid;
   grid-template-columns: 400px 1fr;
+  transition: 0.2s;
   .aside {
     padding: 20px 30px 50px;
     background: $black-clr;
@@ -18,14 +19,31 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    transition: 0.2s;
+    overflow: hidden;
     .aside__top {
       .admin__dashboard {
         margin-bottom: 38px;
+        display: flex;
+        align-items: center;
+        height: 40px;
+        gap: 8px;
+        img {
+          cursor: pointer;
+          transition: 0.2s;
+        }
+        .img-show {
+          transform: rotate(180deg);
+        }
         span {
           font-size: 28px;
           font-weight: 600;
           line-height: 38.25px;
           color: #fff;
+          white-space: nowrap;
+        }
+        .title-show {
+          display: none;
         }
       }
       ul {
@@ -35,7 +53,9 @@
         li {
           padding: 7px 12px;
           border-radius: 8px;
-
+          display: flex;
+          align-items: center;
+          height: 40px;
           a {
             display: flex;
             align-items: center;
@@ -45,6 +65,10 @@
               font-weight: 600;
               line-height: 24.59px;
               color: #fff;
+              white-space: nowrap;
+            }
+            .title-show {
+              display: none;
             }
           }
         }
@@ -58,14 +82,25 @@
       align-items: center;
       gap: 15px;
       cursor: pointer;
+      height: 40px;
       span {
         font-size: 18px;
         font-weight: 600;
         line-height: 24.59px;
         color: #fff;
+        white-space: nowrap;
+      }
+      .title-show {
+        display: none;
       }
     }
   }
+  .aside.show {
+    width: 105px;
+  }
+}
+.admin.show {
+  grid-template-columns: 105px 1fr;
 }
 
 /////////////////  Create Product//////////////////////

@@ -6,6 +6,7 @@ import checkout from "./icons/checkout.svg";
 import create from "./icons/create.svg";
 import deleteIcon from "./icons/delete.svg";
 import footerIcon from "./icons/footer-iconca.svg";
+import left from "./icons/left.svg";
 import logOut from "./icons/log-out.svg";
 import loginSvg from "./icons/login.svg";
 import logo from "./icons/logo.svg";
@@ -46,6 +47,7 @@ export {
   emptyCart,
   emptyHeart,
   footerIcon,
+  left,
   logOut,
   login,
   loginSvg,
